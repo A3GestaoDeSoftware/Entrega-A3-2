@@ -1,0 +1,28 @@
+3 - Funcionalidade: Transferência entre Contas
+
+  Cenário: Cliente realiza transferência com sucesso
+    Dado que o cliente possui uma conta principal com saldo de R$200
+    E o cliente possui uma segunda conta com saldo inicial de R$50
+    Quando o cliente insere o cartão no caixa eletrônico
+    E digita o PIN correto
+    E seleciona a opção "Transferência"
+    E escolhe a conta de destino
+    E digita o valor desejado de R$100
+    E confirma a transação
+    Então o sistema deve transferir R$100 da conta principal para a segunda conta
+    E o saldo na conta principal deve ser atualizado para R$100
+    E o saldo na segunda conta deve ser atualizado para R$150
+	
+	
+ Cenário: Tentativa de Transferência com Valor Inválido
+    Dado que o cliente está autenticado no caixa eletrônico
+    E o cliente possui duas contas vinculadas ao cartão
+    E o cliente seleciona a opção "Transferência entre Contas"
+    Quando o cliente insere o valor inválido de R$0,00
+    E escolhe a conta de destino
+    E confirma a transação
+    Então o caixa eletrônico deve exibir a mensagem de erro "Valor inválido"
+    E nenhuma transferência deve ser realizada
+    E o saldo nas contas do cliente deve permanecer inalterado
+
+  
